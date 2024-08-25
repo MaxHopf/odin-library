@@ -5,6 +5,10 @@ input[type="checkbox"] {
     height: 1.125rem;
     /* Make Checkbox scale with the font size */
     margin-right: 0.5rem;
+    accent-color: #1F75CB;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 label {
@@ -12,6 +16,9 @@ label {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 
@@ -54,6 +61,11 @@ th,td{
     color: #28272D;
     border: 1px solid #BFBFC3;
     gap: 0.25rem
+}
+
+.deleteBook-btn:hover{
+    filter: brightness(90%);
+    cursor: pointer;
 }
 
 
@@ -99,6 +111,11 @@ button{
     position: relative;
     float: right;
     bottom: 2rem;
+}
+
+.add-book-btn:hover{
+    filter: brightness(115%);
+    cursor: pointer;
 }
 
 
