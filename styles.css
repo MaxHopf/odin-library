@@ -1,0 +1,241 @@
+/* Custom Checkbox and Label */
+
+input[type="checkbox"] {
+    width: 1.125rem;
+    height: 1.125rem;
+    /* Make Checkbox scale with the font size */
+    margin-right: 0.5rem;
+}
+
+label {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+/* Table Styles */
+
+table {
+    width: 100%;
+    border-collapse: collapse
+    /* remove gap between table cells */
+}
+
+.pageNumber-col,
+.readStatus-col,
+.action-col{
+    width: 8rem;
+}
+
+th,td{
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid #dfdfdf;
+    text-align: left;
+}
+
+.icon-trash{
+      display: inline-block;
+      width: 1rem;
+      height:1rem;
+      line-height: 1rem;
+      stroke: #ffffff;
+      background-image: url('icons/trash.svg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+}
+
+.deleteBook-btn{
+    font-weight:500;
+    line-height: 1rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+    background-color: #FAFAFA;
+    color: #28272D;
+    border: 1px solid #BFBFC3;
+    gap: 0.25rem
+}
+
+
+/* General Layout */
+
+body {
+    padding: 2rem 4rem;
+}
+
+.tableUI {
+    margin-top: 3rem;
+}
+
+
+/* Add a new Book button */
+
+.icon-plus {
+     display: inline-block;
+     width: 1.5rem;
+     height: 1.5rem;
+     line-height: 1rem;
+     stroke: #ffffff;
+     background-image: url('icons/plus.svg');
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+}
+
+button{
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1F75CB;
+    color: #ffffff;
+    border: 1px solid #0F5193;
+    border-radius: 0.25rem;
+}
+
+.add-book-btn{
+    line-height: 1rem;
+    font-weight:600;
+    padding: 0.5rem 1rem;
+    position: relative;
+    float: right;
+    bottom: 2rem;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.icon-library {
+    width: 3rem;
+    height: 3rem;
+    background-image: url('icons/library.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+
+/* Typography */
+
+:root {
+    --neo-grotesque-font-stack: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
+    --default-text-color: #28272D;
+}
+
+html,
+body {
+    color: var(--default-text-color);
+    font-family: var(--neo-grotesque-font-stack);
+    font-size: 100%;
+    line-height: 1.5rem;
+}
+
+p,
+span,
+input {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    max-width: 75ch;
+    margin: 0;
+
+    @media (max-width: 45ch) {
+        line-height: 1.2rem;
+    }
+}
+
+h1,
+.h1 {
+    font-family: var(--neo-grotesque-font-stack);
+    font-weight: bold;
+    font-size: 2.75rem;
+    line-height: 3rem;
+    margin: 0;
+}
+
+h2,
+h2 {
+    font-family: var(--neo-grotesque-font-stack);
+    font-weight: bold;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    margin: 0;
+}
+
+h3 {
+    font-family: var(--neo-grotesque-font-stack);
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin: 0;
+}
+
+h4 {
+    font-family: var(--neo-grotesque-font-stack);
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 0;
+}
+
+small,
+.small-text {
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    margin: 0;
+}
+
+
+/* CSS reset*/
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+ul,
+ol {
+    list-style: none;
+}
