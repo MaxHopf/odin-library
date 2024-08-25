@@ -1,4 +1,88 @@
+/* dialog */
+.dialog-header{
+    margin-bottom: 1.25rem;
+}
+
+.primary-btn{
+    font-weight: 500;
+    &:hover{
+        filter: brightness(110%);
+        cursor: pointer;
+    }
+}
+
+.secondary-btn{
+    background-color: #FAFAFA;
+    border-color: #BFBFC3;
+    color: #28272D;
+    font-weight: 500;
+    &:hover{
+        filter: brightness(98%);
+        cursor: pointer;
+    }
+}
+
+.dialog-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    margin: 0.5rem 0;
+}
+
+label{
+    font-weight: 500;
+}
+
+
+.add-book-dialog{
+    margin: auto;
+    width: 21rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 4px 2px 12px #81818135;
+}
+
+.exit-btn{
+    position: absolute;
+    padding: 0.25rem;
+    border: none;
+    right: 0.75rem;
+    top: 0.75rem;
+    background-color: transparent;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.x-icon{
+    display: inline-block;
+    width: 1.5rem;
+    height:1.5rem;
+    background-image: url('icons/x.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 /* Custom Checkbox and Label */
+
+.meaningful-checkbox{
+    display: flex;
+    align-items: center;
+}
+
+.labeled-checkbox{
+    display: flex;
+    align-items: center;
+}
 
 input[type="checkbox"] {
     width: 1.125rem;
@@ -64,7 +148,7 @@ th,td{
 }
 
 .deleteBook-btn:hover{
-    filter: brightness(90%);
+    filter: brightness(98%);
     cursor: pointer;
 }
 
