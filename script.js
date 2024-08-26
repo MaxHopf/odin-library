@@ -33,12 +33,12 @@ btnToCloseAddBookDialog.addEventListener("click", (e) => {
 });
 
 btnToSaveAddBookDialogFormInputs.addEventListener("click", (e) => {
-    e.preventDefault();
-    const newBook = new Book(inputBookTitle.value, inputBookAuthor.value, inputPageNumber.value, checkboxReadStatus.checked);
-    library.unshift(newBook);
-    clearTable();
-    library.forEach(book => renderBookAsTableRow(book));  
-    addBookDialog.close();
+  e.preventDefault();
+  const newBook = new Book(inputBookTitle.value, inputBookAuthor.value, inputPageNumber.value, checkboxReadStatus.checked);
+  library.unshift(newBook);
+  clearTable();
+  library.forEach(book => renderBookAsTableRow(book));  
+  addBookDialog.close();
 });
 
 function Book(title, author, pageNumber, readStatus){
@@ -46,6 +46,14 @@ function Book(title, author, pageNumber, readStatus){
   this.author = author;
   this.pageNumber = pageNumber;
   this.readStatus = readStatus;
+}
+
+Book.prototype.delete = function() {
+  const bookIndex = library.indexOf(this);
+  library.splice(bookIndex, 1);
+  
+  clearTable();
+  library.forEach(book => renderBookAsTableRow(book));
 }
 
 function clearTable() {
@@ -100,6 +108,10 @@ function renderBookAsTableRow(book){
   const deleteButton = document.createElement('button');
   deleteButton.className = 'deleteBook-btn';
   deleteButton.innerHTML = '<span class="icon-trash"></span>Delete';
+
+  deleteButton.addEventListener('click', () => {
+    book.delete();
+  });
 
   action.appendChild(deleteButton);
   tableRow.appendChild(action);
