@@ -13,9 +13,14 @@ const checkboxReadStatus = addBookDialog.querySelector('[data-checkbox-read-stat
 
 const library = [];
 
+checkboxReadStatus.addEventListener('click', (e) => {
+  const valueOfReadStatus = addBookDialog.querySelector('[data-value-of-read-status]');
+  valueOfReadStatus.textContent = e.target.checked ? 'Read' : 'Not Read';
+});
+
 exitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    addBookDialog.close();
+  e.preventDefault();
+  addBookDialog.close();
 });
 
 btnToShowAddBookDialog.addEventListener("click", () => {
