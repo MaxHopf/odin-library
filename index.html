@@ -22,7 +22,7 @@
 
     <section class="tableUI">
 
-        <table>
+        <table data-book-list>
             <tr>
                 <th>Title</th>
                 <th>Author</th>
@@ -55,20 +55,20 @@
             
             <div class="input">
                 <label for="book-title">Title</label>
-                <input id="book-title" placeholder="" name="title" type="text" value="" maxlength="245" required>
+                <input data-input-book-title id="book-title" placeholder="" name="title" type="text" value="" maxlength="245" required>
             </div>
             <div class="input">
                 <label for="book-author">Author</label>
-                <input id="book-author" placeholder="" name="author" type="text" value="" maxlength="245" required>
+                <input data-input-book-author id="book-author" placeholder="" name="author" type="text" value="" maxlength="245" required>
             </div>
             <div class="input">
                 <label for="page-number">Page Number</label>
-                <input id="page-number" placeholder="" name="page-number" type="number" value="" maxlength="12">
+                <input data-input-page-number id="page-number" placeholder="" name="page-number" type="number" value="" maxlength="12">
             </div>
             <div class="input">
                 <label for="read-status"> Read Status</label>
                 <div class="meaningful-checkbox">
-                    <input id="read-status" type="checkbox" name="readStatus"/><span>not read</span>     
+                    <input data-checkbox-read-status id="read-status" type="checkbox" name="readStatus"/><span>not read</span>     
                 </div>
             </div>
           <div class="dialog-footer">
