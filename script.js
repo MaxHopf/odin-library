@@ -56,6 +56,11 @@ Book.prototype.delete = function() {
   library.forEach(book => renderBookAsTableRow(book));
 }
 
+Book.prototype.updateReadStatus = function(checkbox, label) {
+  this.readStatus = checkbox.checked;
+  label.textContent = this.readStatus ? 'Read' : 'Not Read';
+};
+
 function clearTable() {
   const table = document.querySelector('[data-book-list]');
 
@@ -111,6 +116,10 @@ function renderBookAsTableRow(book){
 
   deleteButton.addEventListener('click', () => {
     book.delete();
+  });
+
+  checkbox.addEventListener('change', () => {
+    book.updateReadStatus(checkbox, label);
   });
 
   action.appendChild(deleteButton);
