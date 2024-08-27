@@ -1,3 +1,4 @@
+// use strict more to enforce common code mistakes and unsafe actions
 'use strict'
 
 const btnToShowAddBookDialog = document.querySelector('[data-show-add-book-dialog-btn]');
@@ -11,36 +12,47 @@ const inputBookAuthor = addBookDialog.querySelector('[data-input-book-author]');
 const inputPageNumber = addBookDialog.querySelector('[data-input-page-number]');
 const checkboxReadStatus = addBookDialog.querySelector('[data-checkbox-read-status]');
 
+// Initialize array to store book objects
 const library = [];
 
+// Add event listener to update the read status label when user interacts with the checkbox
 checkboxReadStatus.addEventListener('click', (e) => {
   const valueOfReadStatus = addBookDialog.querySelector('[data-value-of-read-status]');
   valueOfReadStatus.textContent = e.target.checked ? 'Read' : 'Not Read';
 });
 
+// Add event listener to open the add-book dialog
+btnToShowAddBookDialog.addEventListener("click", () => {
+  addBookDialog.showModal();
+});
+
+// Add event listener to close the add-book dialog
 exitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   addBookDialog.close();
 });
 
-btnToShowAddBookDialog.addEventListener("click", () => {
-  addBookDialog.showModal();
-});
-
+// Add event listener to close the add-book dialog
 btnToCloseAddBookDialog.addEventListener("click", (e) => {
   e.preventDefault();
   addBookDialog.close();
 });
 
+// Add event listener to save a new book in library array and update UI
 btnToSaveAddBookDialogFormInputs.addEventListener("click", (e) => {
   e.preventDefault();
+  // Instantiate newBook as a new object of Book to create a new book object
   const newBook = new Book(inputBookTitle.value, inputBookAuthor.value, inputPageNumber.value, checkboxReadStatus.checked);
+  // Store the new book object in the library array
   library.unshift(newBook);
+  // Call the function to clear the current table in the UI
   clearTable();
+  // Call the function to render table row in the UI on each book object in the library array
   library.forEach(book => renderBookAsTableRow(book));  
   addBookDialog.close();
 });
 
+// Add constructor function for creating book objects
 function Book(title, author, pageNumber, readStatus){
   this.title = title;
   this.author = author;
@@ -48,6 +60,7 @@ function Book(title, author, pageNumber, readStatus){
   this.readStatus = readStatus;
 }
 
+// Add method to the Book prototype that makes each book instance deletable from the library array and UI
 Book.prototype.delete = function() {
   const bookIndex = library.indexOf(this);
   library.splice(bookIndex, 1);
@@ -56,11 +69,13 @@ Book.prototype.delete = function() {
   library.forEach(book => renderBookAsTableRow(book));
 }
 
+// Add method to Book prototype that allows updating the read status for corresponding book instances
 Book.prototype.updateReadStatus = function(checkbox, label) {
   this.readStatus = checkbox.checked;
   label.textContent = this.readStatus ? 'Read' : 'Not Read';
 };
 
+// Add function to clear the table in UI
 function clearTable() {
   const table = document.querySelector('[data-book-list]');
 
@@ -69,6 +84,7 @@ function clearTable() {
   }
 }
 
+// Add function to render a book object as a table row to display it in the UI
 function renderBookAsTableRow(book){
 
   const tableRow = document.createElement('tr');
