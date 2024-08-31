@@ -55,31 +55,38 @@ btnToSaveAddBookDialogFormInputs.addEventListener("click", (e) => {
   addBookDialog.close();
 });
 
+const libraryModule = (function() {
+  const library = [];
+  
+  function createBook(title, author, pageNumber, readStatus) {
+    function updateReadStatus(checkbox, label) {
+      this.readStatus = checkbox.checked;
+      label.textContent = this.readStatus ? "Read" : "Not Read";
+    }
+    function removeBookFromLibrary() {
+      const bookIndex = library.indexOf(this);
+      library.splice(bookIndex, 1);
+      
+      clearTable();
+      library.forEach((book) => renderBookAsTableRow(book));
+    }
+    const book = {
+      title,
+      author,
+      pageNumber,
+      readStatus,
+      updateReadStatus,
+      removeBookFromLibrary
+    }
+    return book;
+  }
 
-const library = [];
+  return {library, createBook};
+})();
 
-function createBook(title, author, pageNumber, readStatus) {
-  function updateReadStatus(checkbox, label) {
-    this.readStatus = checkbox.checked;
-    label.textContent = this.readStatus ? "Read" : "Not Read";
-  }
-  function removeBookFromLibrary() {
-    const bookIndex = library.indexOf(this);
-    library.splice(bookIndex, 1);
-    
-    clearTable();
-    library.forEach((book) => renderBookAsTableRow(book));
-  }
-  const book = {
-    title,
-    author,
-    pageNumber,
-    readStatus,
-    updateReadStatus,
-    removeBookFromLibrary
-  }
-  return book;
-}
+const {library, createBook} = libraryModule;
+
+
 
 // Add function to clear the table in UI
 function clearTable() {
